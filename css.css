@@ -112,3 +112,7 @@ table.table {
     padding: 1.5rem 1rem;
   }
 }
+
+#clearBtn{
+  margin-bottom: 10px;
+}
