@@ -106,6 +106,23 @@ function preencherNomeArquivoBaseComSegundaLinha(textoCSV) {
 }
 
 
+document.getElementById("clearBtn").addEventListener("click", limparTudo);
+
+function limparTudo() {
+  // Limpar input de arquivo
+  document.getElementById("fileInput").value = "";
+
+  // Resetar selects
+  document.getElementById("colunaSelecionada").selectedIndex = 0;
+  document.getElementById("formatoSaida").selectedIndex = 0;
+
+  // Limpar campos de texto/número
+  document.getElementById("quantidadeArquivos").value = 1;
+  document.getElementById("nomeArquivoBase").value = "";
+
+  // Limpar tabela
+  document.getElementById("outputBody").innerHTML = "";
+}
 
 
 
