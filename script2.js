@@ -7,6 +7,10 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
   const reader = new FileReader();
   reader.onload = function (event) {
     const texto = event.target.result;
+
+    // CHAMA A FUNÇÃO AQUI ✅
+    preencherNomeArquivoBaseComSegundaLinha(texto);
+
     processarCSV(texto);
   };
   reader.readAsText(file, 'UTF-8');
@@ -85,3 +89,23 @@ async function exportarCSV() {
   link.click();
   document.body.removeChild(link);
 }
+
+
+function preencherNomeArquivoBaseComSegundaLinha(textoCSV) {
+  const linhas = textoCSV.split('\n').filter(l => l.trim() !== '');
+  if (linhas.length < 2) return;
+
+  const segundaLinha = linhas[1].trim();
+  const primeiraColuna = segundaLinha.split(/[;,]/)[0]?.replace(/["']/g, '').trim();
+
+  console.log("Valor detectado para nome do arquivo:", primeiraColuna);
+
+  if (primeiraColuna) {
+    document.getElementById('nomeArquivoBase').value = primeiraColuna;
+  }
+}
+
+
+
+
+
